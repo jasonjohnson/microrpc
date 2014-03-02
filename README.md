@@ -6,7 +6,7 @@ A micro framework for creating RPC clients and servers in Python.
 Warning
 -------
 
-This module is intended for *prototypes only.* It indiscriminately (therefore unsafely) un-pickles any data handed to it. It is not suited for production use at this time.
+This module is intended for *prototypes only.* It indiscriminately (therefore unsafely) un-pickles any data handed to it. It is not suited for production use at this time. It is possible to [disallow some opcodes](https://gist.github.com/jasonjohnson/9309659), but I'm skeptical as to its effectiveness. Perhaps I should consider using JSON.
 
 Usage
 -----
