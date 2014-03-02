@@ -3,6 +3,8 @@ microrpc
 
 A micro framework for creating RPC clients and servers in Python.
 
+**WARNING:** This module is intended for *prototypes only.* It indiscriminately (therefore unsafely) un-pickles any data handed to it. It is not suited for production use at this time.
+
 Usage
 -----
 
