@@ -6,14 +6,14 @@ A micro framework for creating RPC clients and servers in Python.
 Usage
 -----
 
-First, we need to build our RPC server. To begin we will built a function to multiply two things.
+First, we need to build our RPC server. To begin we will build a function to multiply two things.
 
 ```py
 def multiply(a, b):
     return a * b
 ```
 
-To enable RPC for this function, we simple create a server and decorate our function. Once decorated, we can start the server and wait for our first call.
+To enable RPC for this function, we simply create a server and decorate our function. Once decorated, we can start the server and wait for our first call.
 
 ```py
 from microrpc.server import create_server
