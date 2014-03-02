@@ -16,21 +16,21 @@ def multiply(a, b):
 To enable RPC for this function, we simply create a server and decorate our function. Once decorated, we can start the server and wait for our first call.
 
 ```py
-from microrpc.server import create_server
+from microrpc import Server
 
-server = create_server()
+server = Server()
 
 @server.rpc
 def multiply(a, b):
     return a * b
 
-server.serve_forever()
+server.run()
 ```
 
 Now we need a client to call our function.
 
 ```py
-from microrpc.client import create_client
+from microrpc import Client
 
 client = create_client()
 print(client.multiply(2, 10))
