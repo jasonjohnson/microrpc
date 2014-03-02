@@ -1,6 +1,6 @@
-from microrpc.client import create_client
+from microrpc import Client
 
-client = create_client()
+client = Client()
 
 try:
     print(client.nonexistent())

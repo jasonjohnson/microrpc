@@ -1,10 +1,10 @@
-from microrpc.server import create_server
+from microrpc import Server
 
-server = create_server()
+server = Server()
 
 @server.rpc
 def add_two(a, b):
     return a + b
 
-server.serve_forever()
+server.run()
 

@@ -2,7 +2,7 @@ import pickle
 import socket
 
 class Client(object):
-    def __init__(self, host, port):
+    def __init__(self, host='0.0.0.0', port=9090):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.connect((host, port))
 
@@ -23,8 +23,4 @@ class Client(object):
 
     def __del__(self):
         self.socket.close()
-
-def create_client(host='0.0.0.0', port=9090):
-    client = Client(host, port)
-    return client
 
