@@ -32,7 +32,7 @@ Now we need a client to call our function.
 ```py
 from microrpc import Client
 
-client = create_client()
+client = Client()
 print(client.multiply(2, 10))
 ```
 
