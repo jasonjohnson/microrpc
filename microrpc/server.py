@@ -1,8 +1,6 @@
 import pickle
 from socketserver import BaseRequestHandler, TCPServer, ThreadingMixIn
 
-METHODS = {}
-
 class Handler(BaseRequestHandler):
     def handle(self):
         while True:
@@ -14,15 +12,21 @@ class Handler(BaseRequestHandler):
             method, args, kwargs = pickle.loads(buff)
 
             try:
-                result = METHODS[method](*args, **kwargs)
+                result = self.server.methods[method](*args, **kwargs)
             except Exception as e:
                 result = e
 
             self.request.sendall(pickle.dumps(result))
 
 class Server(ThreadingMixIn, TCPServer):
-    pass
+    def __init__(self, host, port, handler):
+        super().__init__((host, port), handler)
+        self.methods = {}
+
+    def rpc(self, func):
+        self.methods[func.__name__] = func
+        return func
 
 def create_server(host='0.0.0.0', port=9090):
-    return Server((host, port), Handler)
+    return Server(host, port, Handler)
 
